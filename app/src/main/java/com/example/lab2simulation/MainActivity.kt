@@ -12,16 +12,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.math.cos
 import kotlin.math.max
-import kotlin.math.sin
-import kotlin.math.sqrt
 import com.github.mikephil.charting.components.LimitLine
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.concurrent.schedule
-import kotlin.time.toDuration
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,11 +25,11 @@ class MainActivity : AppCompatActivity() {
 
         val timeMiH  =TimeHolder()
 
-        button.setOnClickListener {
+        buttonStart.setOnClickListener {
             timeMiH.currentTime=0f
             val chart = findViewById<LineChart>(R.id.chart1)
             val entries = ArrayList<Entry>()
-            var ball=PhysicalBody(0f, editText3.text.toString().toFloat(),editText.text.toString().toFloat(),(editText2.text.toString().toFloat()*Math.PI/180.0).toFloat())
+            var ball=PhysicalBody(0f, editTextHeight.text.toString().toFloat(),editTextSpeed.text.toString().toFloat(),(editTextAngle.text.toString().toFloat()*Math.PI/180.0).toFloat())
             timeMiH.countTimeInStep(ball.getMaxTime(),1024f)
             var maxs=max(ball.getMaxX(),ball.getMaxY())*1.05F //обеспечивает небольшой отступ справа и сверху,чтоб график не склеивался
                                             //и равенство измерений осей x и y
@@ -76,7 +69,7 @@ class MainActivity : AppCompatActivity() {
                                         chart.axisRight.axisMaximum = maxs
                                         chart.axisRight.axisMinimum = 0f
                                         chart.invalidate()
-                                        textView4.text=timeMiH.currentTime.toString()+" seconds"
+                                        textViewCurTime.text=timeMiH.currentTime.toString()+" seconds"
                                         timeMiH.currentTime+=timeMiH.getTimeInStep()
                                     }
                             }
@@ -86,7 +79,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        button2.setOnClickListener {
+        buttonPause.setOnClickListener {
             timeMiH.pauseUnpause()
         }
     }
