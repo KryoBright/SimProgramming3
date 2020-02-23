@@ -72,30 +72,29 @@
         android:id="@+id/textViewSpeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:text="Starting Speed"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextSpeed"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSpeed"
+        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintStart_toStartOf="@+id/editTextSpeed"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewAngle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-       android:text="Starting Angle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextSpeed"
-        app:layout_constraintTop_toTopOf="@+id/editTextAngle" />
+        android:text="Starting Angle"
+        app:layout_constraintEnd_toEndOf="@+id/editTextAngle"
+        app:layout_constraintStart_toStartOf="@+id/editTextAngle"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSpeed" />
+
     <TextView
         android:id="@+id/textViewHeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="Starting Height"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextSpeed"
-        app:layout_constraintTop_toTopOf="@+id/editTextHeight" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextHeight"
+        app:layout_constraintStart_toStartOf="@+id/editTextHeight"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAngle" />
 
     <Button
         android:id="@+id/buttonPause"
@@ -117,5 +116,49 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonPause"
         app:layout_constraintStart_toEndOf="@+id/buttonStart"
         app:layout_constraintTop_toBottomOf="@+id/editTextHeight" />
+
+    <EditText
+        android:id="@+id/editTextSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="10"
+        app:layout_constraintStart_toEndOf="@+id/editTextSpeed"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextMass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="numberSigned|numberDecimal"
+        android:text="60"
+        app:layout_constraintStart_toEndOf="@+id/editTextSpeed"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSpeed" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:text="Size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextSize"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/editTextMass"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSize" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

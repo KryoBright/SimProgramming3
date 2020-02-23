@@ -29,7 +29,8 @@ class MainActivity : AppCompatActivity() {
             timeMiH.currentTime=0f
             val chart = findViewById<LineChart>(R.id.chart1)
             val entries = ArrayList<Entry>()
-            var ball=PhysicalBody(0f, editTextHeight.text.toString().toFloat(),editTextSpeed.text.toString().toFloat(),(editTextAngle.text.toString().toFloat()*Math.PI/180.0).toFloat())
+            var ball=PhysicalBody(0f, editTextHeight.text.toString().toFloat(),editTextSpeed.text.toString().toFloat(),(editTextAngle.text.toString().toFloat()*Math.PI/180.0).toFloat(),
+                                    editTextSize.text.toString().toFloat(),editTextMass.text.toString().toFloat())
             timeMiH.countTimeInStep(ball.getMaxTime(),1024f)
             var maxs=max(ball.getMaxX(),ball.getMaxY())*1.05F //обеспечивает небольшой отступ справа и сверху,чтоб график не склеивался
                                             //и равенство измерений осей x и y
@@ -63,11 +64,11 @@ class MainActivity : AppCompatActivity() {
                                         chart.setVisibleXRangeMaximum(maxs)
                                         chart.setVisibleXRangeMinimum(maxs)
                                         chart.fitScreen()
-                                        chart.xAxis.axisMaximum = maxs
+                                  /*      chart.xAxis.axisMaximum = maxs
                                         chart.axisLeft.axisMaximum = maxs
                                         chart.axisLeft.axisMinimum = 0f
                                         chart.axisRight.axisMaximum = maxs
-                                        chart.axisRight.axisMinimum = 0f
+                                        chart.axisRight.axisMinimum = 0f*/
                                         chart.invalidate()
                                         textViewCurTime.text=timeMiH.currentTime.toString()+" seconds"
                                         timeMiH.currentTime+=timeMiH.getTimeInStep()
